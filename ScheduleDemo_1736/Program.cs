@@ -5,11 +5,14 @@ namespace ScheduleDemo_1736
 {
     internal class Program
     {
+        //使用async是因為啟動排程器 (scheduler.Start())、排程作業 (scheduler.ScheduleJob())
+        //和關閉排程器 (scheduler.Shutdown())需要一定時間如果沒使用async異步會導致程式阻塞
         static async Task Main(string[] args)
         {
             // 讓使用者輸入每隔 N 秒執行的間隔時間
             Console.Write("請輸入每隔 N 秒執行的間隔時間：");
-            int intervalInSeconds;
+           
+            int intervalInSeconds;//儲存使用者輸入的變數
             while (true)
             {
                 // 嘗試解析使用者輸入的秒數
